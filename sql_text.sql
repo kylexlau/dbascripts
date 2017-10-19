@@ -1,6 +1,7 @@
 set pages 49999
 set lines 400
 set longc 399999
+col sql_text for a999
 
 accept sql_id -
     prompt 'Enter value for sql_id: ' -
