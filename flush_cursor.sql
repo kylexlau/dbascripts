@@ -4,7 +4,7 @@ REM To create DBMS_SHARED_POOL, run the DBMSPOOL.SQL script.
 REM The PRVTPOOL.PLB script is automatically executed after DBMSPOOL.SQL runs.
 REM These scripts are not run by as part of standard database creation.
 
-SPO flush_cursor_&&sql_id..txt;
+-- SPO flush_cursor_&&sql_id..txt;
 
 PRO *** before flush ***
 SELECT inst_id, loaded_versions, invalidations, address, hash_value
@@ -31,4 +31,4 @@ FROM gv$sql WHERE sql_id = '&&sql_id.' ORDER BY 1, 2;
 
 UNDEF sql_id;
 
-SPO OFF;
+-- SPO OFF;
