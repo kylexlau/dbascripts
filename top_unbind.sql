@@ -2,6 +2,7 @@ col text for a30 tru
 col last_load_time for a30
 col schema for a15 trunc
 col module for a15 trunc
+col ratio for 0.99
 
 with t1 as
  (select *
@@ -20,7 +21,8 @@ select t1.cnt,
        t2.last_load_time,
        t2.parsing_schema_name schema,
        t2.module,
-       t2.sql_text text
+       t2.sql_text text,
+       ratio_to_report(t1.cnt) over () ratio
   from t1
   left join (select inst_id,
                     PLAN_HASH_VALUE,
